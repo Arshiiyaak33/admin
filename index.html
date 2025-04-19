@@ -14,22 +14,61 @@
   <div class="container">
     <h2>محیط مدیریت قیمت‌گذاری</h2>
 
-    <label for="price90">قیمت لیوان 90 سی‌سی:</label>
-    <input type="number" id="price90" placeholder="قیمت لیوان 90 سی‌سی">
-    <label for="price110">قیمت لیوان 110 سی‌سی:</label>
-    <input type="number" id="price110" placeholder="قیمت لیوان 110 سی‌سی">
-    <label for="price220">قیمت لیوان 220 سی‌سی:</label>
-    <input type="number" id="price220" placeholder="قیمت لیوان 220 سی‌سی">
-    <label for="price360">قیمت لیوان 360 سی‌سی:</label>
-    <input type="number" id="price360" placeholder="قیمت لیوان 360 سی‌سی">
+    <label for="price90Single">قیمت لیوان 90 سی‌سی تک جداره:</label>
+    <input type="number" id="price90Single" placeholder="قیمت لیوان 90 سی‌سی تک جداره">
+    
+    <label for="price110Single">قیمت لیوان 110 سی‌سی تک جداره:</label>
+    <input type="number" id="price110Single" placeholder="قیمت لیوان 110 سی‌سی تک جداره">
+    
+    <label for="price110Double">قیمت لیوان 110 سی‌سی دو جداره:</label>
+    <input type="number" id="price110Double" placeholder="قیمت لیوان 110 سی‌سی دو جداره">
+    
+    <label for="price110VIP">قیمت لیوان 110 سی‌سی سه جداره وی آی پی:</label>
+    <input type="number" id="price110VIP" placeholder="قیمت لیوان 110 سی‌سی سه جداره وی آی پی">
+    
+    <label for="price220Single">قیمت لیوان 220 سی‌سی تک جداره:</label>
+    <input type="number" id="price220Single" placeholder="قیمت لیوان 220 سی‌سی تک جداره">
+    
+    <label for="price220Double">قیمت لیوان 220 سی‌سی دو جداره:</label>
+    <input type="number" id="price220Double" placeholder="قیمت لیوان 220 سی‌سی دو جداره">
+    
+    <label for="price220VIP">قیمت لیوان 220 سی‌سی سه جداره وی آی پی:</label>
+    <input type="number" id="price220VIP" placeholder="قیمت لیوان 220 سی‌سی سه جداره وی آی پی">
+    
+    <label for="price360Double">قیمت لیوان 360 سی‌سی دو جداره:</label>
+    <input type="number" id="price360Double" placeholder="قیمت لیوان 360 سی‌سی دو جداره">
+    
+    <label for="price360VIP">قیمت لیوان 360 سی‌سی سه جداره وی آی پی:</label>
+    <input type="number" id="price360VIP" placeholder="قیمت لیوان 360 سی‌سی سه جداره وی آی پی">
 
     <button onclick="savePrices()">ذخیره قیمت‌ها</button>
   </div>
 
   <script>
     function savePrices() {
-      // گرفتن قیمت‌ها از ورودی‌ها
-      const price90 = document.getElementById('price90').value;
-      const price110 = document.getElementById('price110').value;
-      const price220 = document.getElementById('price220').value;
-      const price360 = document.getElementById('
+      const prices = {
+        '90': {
+          'single': document.getElementById('price90Single').value
+        },
+        '110': {
+          'single': document.getElementById('price110Single').value,
+          'double': document.getElementById('price110Double').value,
+          'vip': document.getElementById('price110VIP').value
+        },
+        '220': {
+          'single': document.getElementById('price220Single').value,
+          'double': document.getElementById('price220Double').value,
+          'vip': document.getElementById('price220VIP').value
+        },
+        '360': {
+          'double': document.getElementById('price360Double').value,
+          'vip': document.getElementById('price360VIP').value
+        }
+      };
+
+      localStorage.setItem('cupPrices', JSON.stringify(prices));
+      alert('قیمت‌ها با موفقیت ذخیره شدند.');
+    }
+  </script>
+</body>
+</html>
