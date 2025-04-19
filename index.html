@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدیریت قیمت‌ها</title>
+  <style>
+    body { font-family: Tahoma, sans-serif; }
+    .container { width: 50%; margin: 0 auto; padding: 20px; background-color: #f4f7fc; border-radius: 10px; }
+    input, button { width: 100%; padding: 10px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>مدیریت قیمت‌ها</h2>
+    <label for="price">قیمت لیوان:</label>
+    <input type="number" id="price" placeholder="قیمت را وارد کنید">
+    <button onclick="savePrice()">ذخیره قیمت</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function savePrice() {
+      const price = document.getElementById("price").value;
+      if (price) {
+        localStorage.setItem("cupPrice", JSON.stringify({ price: price }));
+        document.getElementById("message").textContent = "قیمت با موفقیت ذخیره شد!";
+      } else {
+        document.getElementById("message").textContent = "لطفاً قیمت را وارد کنید.";
+      }
+    }
+  </script>
+</body>
+</html>
