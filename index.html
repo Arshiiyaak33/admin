@@ -76,6 +76,18 @@
     .checkbox-container .checked {
       color: blue;
     }
+
+    /* اضافه کردن استایل برای ورودی قیمت */
+    .price-input-container {
+      margin-top: 20px;
+    }
+    .price-input-container input {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -91,6 +103,11 @@
           <input type="checkbox" id="90-single" name="90-single" disabled checked>
           <label for="90-single" class="checked">تک جداره</label><br>
         </div>
+        <div class="price-input-container">
+          <label for="price-90">قیمت:</label>
+          <input type="number" id="price-90" placeholder="قیمت 90 سی‌سی" />
+          <button onclick="savePrice('90')">ذخیره قیمت</button>
+        </div>
       </div>
       
       <!-- Card for 110cc -->
@@ -104,6 +121,11 @@
           <label for="110-double" class="checked">دو جداره</label><br>
           <input type="checkbox" id="110-triple" name="110-triple" disabled checked>
           <label for="110-triple" class="checked">Triple VIP</label><br> <!-- وی آی پی به انگلیسی -->
+        </div>
+        <div class="price-input-container">
+          <label for="price-110">قیمت:</label>
+          <input type="number" id="price-110" placeholder="قیمت 110 سی‌سی" />
+          <button onclick="savePrice('110')">ذخیره قیمت</button>
         </div>
       </div>
 
@@ -119,6 +141,11 @@
           <input type="checkbox" id="220-triple" name="220-triple" disabled checked>
           <label for="220-triple" class="checked">Triple VIP</label><br> <!-- وی آی پی به انگلیسی -->
         </div>
+        <div class="price-input-container">
+          <label for="price-220">قیمت:</label>
+          <input type="number" id="price-220" placeholder="قیمت 220 سی‌سی" />
+          <button onclick="savePrice('220')">ذخیره قیمت</button>
+        </div>
       </div>
 
       <!-- Card for 360cc -->
@@ -131,12 +158,37 @@
           <input type="checkbox" id="360-triple" name="360-triple" disabled checked>
           <label for="360-triple" class="checked">Triple VIP</label><br> <!-- وی آی پی به انگلیسی -->
         </div>
+        <div class="price-input-container">
+          <label for="price-360">قیمت:</label>
+          <input type="number" id="price-360" placeholder="قیمت 360 سی‌سی" />
+          <button onclick="savePrice('360')">ذخیره قیمت</button>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // برای افزودن قابلیت‌های آینده، در صورت نیاز
+    // ذخیره قیمت‌ها در localStorage
+    function savePrice(size) {
+      const price = document.getElementById(`price-${size}`).value;
+      if (price) {
+        localStorage.setItem(`price-${size}`, price);
+        alert(`قیمت برای لیوان ${size} سی‌سی ذخیره شد`);
+      } else {
+        alert('لطفاً قیمت را وارد کنید');
+      }
+    }
+
+    // بارگذاری قیمت‌ها از localStorage
+    window.onload = function() {
+      const sizes = ['90', '110', '220', '360'];
+      sizes.forEach(size => {
+        const savedPrice = localStorage.getItem(`price-${size}`);
+        if (savedPrice) {
+          document.getElementById(`price-${size}`).value = savedPrice;
+        }
+      });
+    };
   </script>
 </body>
 </html>
