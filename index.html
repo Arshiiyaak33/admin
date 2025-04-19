@@ -7,9 +7,12 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f8f9fa;
+      background-color: #000; /* پس‌زمینه مشکی */
       margin: 0;
       padding: 0;
+      direction: rtl; /* راست‌چین */
+      text-align: right;
+      color: #fff; /* متن سفید */
     }
     .container {
       width: 80%;
@@ -18,7 +21,7 @@
     }
     h2 {
       font-size: 30px;
-      color: #ff6f00;
+      color: #f37021; /* رنگ نارنجی */
       margin-bottom: 40px;
     }
     .card-container {
@@ -29,7 +32,7 @@
       margin: 0 auto;
     }
     .card {
-      background-color: #fff;
+      background-color: #f37021; /* رنگ نارنجی */
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -43,17 +46,17 @@
     }
     .card h3 {
       font-size: 24px;
-      color: #333;
+      color: #fff;
     }
     .card .description {
       font-size: 16px;
-      color: #777;
+      color: #fff;
       margin-top: 10px;
     }
-    .card-90 { background-color: #ffebcc; }
-    .card-110 { background-color: #ffddcc; }
-    .card-220 { background-color: #ffeecc; }
-    .card-360 { background-color: #ffcc99; }
+    .card-90 { background-color: #f37021; }
+    .card-110 { background-color: #f37021; }
+    .card-220 { background-color: #f37021; }
+    .card-360 { background-color: #f37021; }
 
     .checkbox-container {
       margin-top: 30px;
@@ -68,7 +71,7 @@
     }
     .checkbox-container label {
       font-size: 18px;
-      color: #333;
+      color: #fff; /* رنگ متن سفید */
     }
     .checkbox-container .checked {
       color: blue;
@@ -100,7 +103,7 @@
           <input type="checkbox" id="110-double" name="110-double" disabled checked>
           <label for="110-double" class="checked">دو جداره</label><br>
           <input type="checkbox" id="110-triple" name="110-triple" disabled checked>
-          <label for="110-triple" class="checked">سه جداره وی‌آی‌پی</label><br>
+          <label for="110-triple" class="checked">Triple VIP</label><br> <!-- وی آی پی به انگلیسی -->
         </div>
       </div>
 
@@ -114,7 +117,7 @@
           <input type="checkbox" id="220-double" name="220-double" disabled checked>
           <label for="220-double" class="checked">دو جداره</label><br>
           <input type="checkbox" id="220-triple" name="220-triple" disabled checked>
-          <label for="220-triple" class="checked">سه جداره وی‌آی‌پی</label><br>
+          <label for="220-triple" class="checked">Triple VIP</label><br> <!-- وی آی پی به انگلیسی -->
         </div>
       </div>
 
@@ -126,15 +129,14 @@
           <input type="checkbox" id="360-double" name="360-double" disabled checked>
           <label for="360-double" class="checked">دو جداره</label><br>
           <input type="checkbox" id="360-triple" name="360-triple" disabled checked>
-          <label for="360-triple" class="checked">سه جداره وی‌آی‌پی</label><br>
+          <label for="360-triple" class="checked">Triple VIP</label><br> <!-- وی آی پی به انگلیسی -->
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    // For future functionality, if needed
-    // This script would be useful if you later want to add any interactivity
+    // برای افزودن قابلیت‌های آینده، در صورت نیاز
   </script>
 </body>
 </html>
