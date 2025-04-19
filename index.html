@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>محیط مدیریت قیمت‌گذاری</title>
+  <title>مدیریت قیمت‌گذاری لیوان‌ها</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -35,7 +35,8 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
       cursor: pointer;
-      height: 200px;
+      height: 250px;
+      text-align: center;
     }
     .card:hover {
       transform: scale(1.05);
@@ -53,6 +54,35 @@
     .card-110 { background-color: #ffddcc; }
     .card-220 { background-color: #ffeecc; }
     .card-360 { background-color: #ffcc99; }
+
+    .checkbox-container {
+      margin-top: 30px;
+      text-align: left;
+      display: inline-block;
+    }
+    .checkbox-container input {
+      margin-right: 10px;
+      transform: scale(1.5);
+    }
+    .checkbox-container label {
+      font-size: 18px;
+      color: #333;
+    }
+    button {
+      background-color: #ff6f00;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      width: 200px;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #e65c00;
+    }
   </style>
 </head>
 <body>
@@ -60,23 +90,109 @@
     <h2>مدیریت قیمت‌گذاری لیوان‌ها</h2>
 
     <div class="card-container">
-      <div class="card card-90" onclick="window.location.href='price-90.html'">
-        <h3>90 سی‌سی</h3>
-        <p class="description">لیوان 90 سی‌سی - تک جداره</p>
+      <!-- Card for 90cc -->
+      <div class="card card-90">
+        <h3>90 CC</h3>
+        <p class="description">لیوان 90 سی‌سی</p>
+        <div class="checkbox-container">
+          <input type="checkbox" id="90-single" name="90-single">
+          <label for="90-single">تک جداره</label><br>
+        </div>
+        <button onclick="savePrice('90')">ذخیره قیمت</button>
       </div>
-      <div class="card card-110" onclick="window.location.href='price-110.html'">
-        <h3>110 سی‌سی</h3>
-        <p class="description">لیوان 110 سی‌سی - تک جداره، دو جداره، سه جداره وی‌آی‌پی</p>
+      
+      <!-- Card for 110cc -->
+      <div class="card card-110">
+        <h3>110 CC</h3>
+        <p class="description">لیوان 110 سی‌سی</p>
+        <div class="checkbox-container">
+          <input type="checkbox" id="110-single" name="110-single">
+          <label for="110-single">تک جداره</label><br>
+          <input type="checkbox" id="110-double" name="110-double">
+          <label for="110-double">دو جداره</label><br>
+          <input type="checkbox" id="110-triple" name="110-triple">
+          <label for="110-triple">سه جداره وی‌آی‌پی</label><br>
+        </div>
+        <button onclick="savePrice('110')">ذخیره قیمت</button>
       </div>
-      <div class="card card-220" onclick="window.location.href='price-220.html'">
-        <h3>220 سی‌سی</h3>
-        <p class="description">لیوان 220 سی‌سی - تک جداره، دو جداره، سه جداره وی‌آی‌پی</p>
+
+      <!-- Card for 220cc -->
+      <div class="card card-220">
+        <h3>220 CC</h3>
+        <p class="description">لیوان 220 سی‌سی</p>
+        <div class="checkbox-container">
+          <input type="checkbox" id="220-single" name="220-single">
+          <label for="220-single">تک جداره</label><br>
+          <input type="checkbox" id="220-double" name="220-double">
+          <label for="220-double">دو جداره</label><br>
+          <input type="checkbox" id="220-triple" name="220-triple">
+          <label for="220-triple">سه جداره وی‌آی‌پی</label><br>
+        </div>
+        <button onclick="savePrice('220')">ذخیره قیمت</button>
       </div>
-      <div class="card card-360" onclick="window.location.href='price-360.html'">
-        <h3>360 سی‌سی</h3>
-        <p class="description">لیوان 360 سی‌سی - دو جداره، سه جداره وی‌آی‌پی</p>
+
+      <!-- Card for 360cc -->
+      <div class="card card-360">
+        <h3>360 CC</h3>
+        <p class="description">لیوان 360 سی‌سی</p>
+        <div class="checkbox-container">
+          <input type="checkbox" id="360-double" name="360-double">
+          <label for="360-double">دو جداره</label><br>
+          <input type="checkbox" id="360-triple" name="360-triple">
+          <label for="360-triple">سه جداره وی‌آی‌پی</label><br>
+        </div>
+        <button onclick="savePrice('360')">ذخیره قیمت</button>
       </div>
     </div>
   </div>
+
+  <script>
+    // Function to save the prices and selected options to LocalStorage or any other method
+    function savePrice(size) {
+      let selectedOptions = [];
+
+      // Check selected options for each size
+      if (size === '90') {
+        if (document.getElementById('90-single').checked) {
+          selectedOptions.push('تک جداره');
+        }
+      } else if (size === '110') {
+        if (document.getElementById('110-single').checked) {
+          selectedOptions.push('تک جداره');
+        }
+        if (document.getElementById('110-double').checked) {
+          selectedOptions.push('دو جداره');
+        }
+        if (document.getElementById('110-triple').checked) {
+          selectedOptions.push('سه جداره وی‌آی‌پی');
+        }
+      } else if (size === '220') {
+        if (document.getElementById('220-single').checked) {
+          selectedOptions.push('تک جداره');
+        }
+        if (document.getElementById('220-double').checked) {
+          selectedOptions.push('دو جداره');
+        }
+        if (document.getElementById('220-triple').checked) {
+          selectedOptions.push('سه جداره وی‌آی‌پی');
+        }
+      } else if (size === '360') {
+        if (document.getElementById('360-double').checked) {
+          selectedOptions.push('دو جداره');
+        }
+        if (document.getElementById('360-triple').checked) {
+          selectedOptions.push('سه جداره وی‌آی‌پی');
+        }
+      }
+
+      // If any option is selected, save it
+      if (selectedOptions.length > 0) {
+        localStorage.setItem('price-' + size, JSON.stringify(selectedOptions));
+        alert('قیمت و گزینه‌ها ذخیره شدند: ' + selectedOptions.join(', '));
+      } else {
+        alert('لطفاً حداقل یک گزینه را انتخاب کنید.');
+      }
+    }
+  </script>
 </body>
 </html>
