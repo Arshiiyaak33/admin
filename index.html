@@ -63,25 +63,15 @@
     .checkbox-container input {
       margin-right: 10px;
       transform: scale(1.5);
+      cursor: not-allowed;
+      opacity: 0.5;
     }
     .checkbox-container label {
       font-size: 18px;
       color: #333;
     }
-    button {
-      background-color: #ff6f00;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      width: 200px;
-      padding: 12px;
-      font-size: 18px;
-      border-radius: 8px;
-      transition: 0.3s ease;
-      margin-top: 20px;
-    }
-    button:hover {
-      background-color: #e65c00;
+    .checkbox-container .checked {
+      color: blue;
     }
   </style>
 </head>
@@ -95,10 +85,9 @@
         <h3>90 CC</h3>
         <p class="description">لیوان 90 سی‌سی</p>
         <div class="checkbox-container">
-          <input type="checkbox" id="90-single" name="90-single">
-          <label for="90-single">تک جداره</label><br>
+          <input type="checkbox" id="90-single" name="90-single" disabled checked>
+          <label for="90-single" class="checked">تک جداره</label><br>
         </div>
-        <button onclick="savePrice('90')">ذخیره قیمت</button>
       </div>
       
       <!-- Card for 110cc -->
@@ -106,14 +95,13 @@
         <h3>110 CC</h3>
         <p class="description">لیوان 110 سی‌سی</p>
         <div class="checkbox-container">
-          <input type="checkbox" id="110-single" name="110-single">
-          <label for="110-single">تک جداره</label><br>
-          <input type="checkbox" id="110-double" name="110-double">
-          <label for="110-double">دو جداره</label><br>
-          <input type="checkbox" id="110-triple" name="110-triple">
-          <label for="110-triple">سه جداره وی‌آی‌پی</label><br>
+          <input type="checkbox" id="110-single" name="110-single" disabled checked>
+          <label for="110-single" class="checked">تک جداره</label><br>
+          <input type="checkbox" id="110-double" name="110-double" disabled checked>
+          <label for="110-double" class="checked">دو جداره</label><br>
+          <input type="checkbox" id="110-triple" name="110-triple" disabled checked>
+          <label for="110-triple" class="checked">سه جداره وی‌آی‌پی</label><br>
         </div>
-        <button onclick="savePrice('110')">ذخیره قیمت</button>
       </div>
 
       <!-- Card for 220cc -->
@@ -121,14 +109,13 @@
         <h3>220 CC</h3>
         <p class="description">لیوان 220 سی‌سی</p>
         <div class="checkbox-container">
-          <input type="checkbox" id="220-single" name="220-single">
-          <label for="220-single">تک جداره</label><br>
-          <input type="checkbox" id="220-double" name="220-double">
-          <label for="220-double">دو جداره</label><br>
-          <input type="checkbox" id="220-triple" name="220-triple">
-          <label for="220-triple">سه جداره وی‌آی‌پی</label><br>
+          <input type="checkbox" id="220-single" name="220-single" disabled checked>
+          <label for="220-single" class="checked">تک جداره</label><br>
+          <input type="checkbox" id="220-double" name="220-double" disabled checked>
+          <label for="220-double" class="checked">دو جداره</label><br>
+          <input type="checkbox" id="220-triple" name="220-triple" disabled checked>
+          <label for="220-triple" class="checked">سه جداره وی‌آی‌پی</label><br>
         </div>
-        <button onclick="savePrice('220')">ذخیره قیمت</button>
       </div>
 
       <!-- Card for 360cc -->
@@ -136,63 +123,18 @@
         <h3>360 CC</h3>
         <p class="description">لیوان 360 سی‌سی</p>
         <div class="checkbox-container">
-          <input type="checkbox" id="360-double" name="360-double">
-          <label for="360-double">دو جداره</label><br>
-          <input type="checkbox" id="360-triple" name="360-triple">
-          <label for="360-triple">سه جداره وی‌آی‌پی</label><br>
+          <input type="checkbox" id="360-double" name="360-double" disabled checked>
+          <label for="360-double" class="checked">دو جداره</label><br>
+          <input type="checkbox" id="360-triple" name="360-triple" disabled checked>
+          <label for="360-triple" class="checked">سه جداره وی‌آی‌پی</label><br>
         </div>
-        <button onclick="savePrice('360')">ذخیره قیمت</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Function to save the prices and selected options to LocalStorage or any other method
-    function savePrice(size) {
-      let selectedOptions = [];
-
-      // Check selected options for each size
-      if (size === '90') {
-        if (document.getElementById('90-single').checked) {
-          selectedOptions.push('تک جداره');
-        }
-      } else if (size === '110') {
-        if (document.getElementById('110-single').checked) {
-          selectedOptions.push('تک جداره');
-        }
-        if (document.getElementById('110-double').checked) {
-          selectedOptions.push('دو جداره');
-        }
-        if (document.getElementById('110-triple').checked) {
-          selectedOptions.push('سه جداره وی‌آی‌پی');
-        }
-      } else if (size === '220') {
-        if (document.getElementById('220-single').checked) {
-          selectedOptions.push('تک جداره');
-        }
-        if (document.getElementById('220-double').checked) {
-          selectedOptions.push('دو جداره');
-        }
-        if (document.getElementById('220-triple').checked) {
-          selectedOptions.push('سه جداره وی‌آی‌پی');
-        }
-      } else if (size === '360') {
-        if (document.getElementById('360-double').checked) {
-          selectedOptions.push('دو جداره');
-        }
-        if (document.getElementById('360-triple').checked) {
-          selectedOptions.push('سه جداره وی‌آی‌پی');
-        }
-      }
-
-      // If any option is selected, save it
-      if (selectedOptions.length > 0) {
-        localStorage.setItem('price-' + size, JSON.stringify(selectedOptions));
-        alert('قیمت و گزینه‌ها ذخیره شدند: ' + selectedOptions.join(', '));
-      } else {
-        alert('لطفاً حداقل یک گزینه را انتخاب کنید.');
-      }
-    }
+    // For future functionality, if needed
+    // This script would be useful if you later want to add any interactivity
   </script>
 </body>
 </html>
